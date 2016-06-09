@@ -1,0 +1,5 @@
+*.zip
+/ProjetoIBM/build/*
+build/Debug/out/*.tif
+*.tif
+ProjetoIBM/build/Debug/img/*.tif 
