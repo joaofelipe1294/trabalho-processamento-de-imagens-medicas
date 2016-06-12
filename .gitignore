@@ -3,3 +3,6 @@
 build/Debug/out/*.tif
 *.tif
 ProjetoIBM/build/Debug/img/*.tif 
+classificadores/scripts/__pycache__/
+classificadores/scripts/results.txt
+classificadores/scripts/image.txt
