@@ -24,10 +24,29 @@ def cross_extraction(bases_path , valid_base_name):
 	dirs.remove(valid_base_name)
 	contador = 0
 	result_files = []
+
 	while contador < len(dirs):
 		result_file_name = dirs[contador] + '_t' + str(contador) + '.txt'
 		result_files.append(result_file_name)
-		print("./ProjetoIBM " + str(bases_path + dirs[contador] + '/') + " " + result_file_name)
 		cmd = "./ProjetoIBM " + str(bases_path + dirs[contador] + '/') + " " + result_file_name
 		result = os.system(cmd)
 		contador += 1
+
+	cmd = "./ProjetoIBM " + str(bases_path + valid_base_name + '/') + " valid.txt"
+	result = os.system(cmd)
+
+	train_file = open('train.txt' , 'w')
+	contador = 0
+
+	for file_name in result_files:
+		temporary_file = open(result_files[contador] , 'r')
+		for line in temporary_file:
+			train_file.write(line)
+		temporary_file.close()
+		contador += 1
+
+	train_file.close()
+
+	for file_name in result_files:
+		cmd = "rm " + file_name
+		result = os.system(cmd)
