@@ -1,6 +1,6 @@
 from sys import argv
 from functions import *
-
+from caracteristics import *
 
 argc = len(argv)
 if argc == 1:
