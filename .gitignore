@@ -5,4 +5,4 @@ build/Debug/out/*.tif
 ProjetoIBM/build/Debug/img/*.tif 
 *.txt
 *.pyc
-classificadores/src/__pycache__/caracteristics.cpython-35.pyc
+classificadores/src/__pycache__/

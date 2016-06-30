@@ -21,7 +21,7 @@ def console_help():
 def pega_valores():
 	X = []
 	y = []
-	treinamento = open('results.txt' , 'r')
+	treinamento = open('train.txt' , 'r')
 	for linha in treinamento:
 		valores_str = linha.split(',')
 		contador = 0
@@ -33,37 +33,43 @@ def pega_valores():
 		y.append(int(valores_str[len(valores_str) - 1][1]))
 	return X , y
 
-def dados_teste():
-	arquivo = open('image.txt' , 'r')
-	dados = arquivo.readline().split(',')
-	X_teste = []
-	values = []
-	for valor in dados:
-		values.append(int(valor))
-	X_teste.append(values)
-	return X_teste
+def dados_validacao():
+	arquivo = open('valid.txt' , 'r')
+	X_validacao = []
+	y_validacao = []
+	for linha in arquivo:
+		dados = linha.split(',')
+		contador = 0
+		caracteristicas = []
+		while contador < len(dados) - 1:
+			caracteristicas.append(int(dados[contador]))
+			contador += 1
+		X_validacao.append(caracteristicas)
+		y_validacao.append(int(dados[len(dados) - 1]))
+	return X_validacao , y_validacao
+
 
 def classifica(teste , classificador , X , y):
 	if classificador == 1:
 		neigh = KNeighborsClassifier(n_neighbors=3)
 		neigh.fit(X, y)
-		classe = neigh.predict(teste)
-		return classe
+		classes = neigh.predict(teste)
+		return classes
 	elif classificador == 2:
 		neigh = KNeighborsClassifier(n_neighbors=5)
 		neigh.fit(X, y)
-		classe = neigh.predict(teste)
-		return classe
+		classes = neigh.predict(teste)
+		return classes
 	elif classificador == 3:
 		lda_classifier = LinearDiscriminantAnalysis()
 		lda_classifier.fit(X , y)
-		classe = lda_classifier.predict(teste)
-		return classe
+		classes = lda_classifier.predict(teste)
+		return classes
 	elif classificador == 4:
 		svm_classifier = svm.SVC()
 		svm_classifier.fit(X , y)
-		classe = svm_classifier.predict(teste)
-		return classe
+		classes = svm_classifier.predict(teste)
+		return classes
 	elif classificador == 5:
 		classes = []
 		neigh = KNeighborsClassifier(n_neighbors=3)
