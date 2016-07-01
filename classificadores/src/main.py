@@ -43,6 +43,10 @@ elif argc == 3 and argv[1] == 'knn':
 	classes = knn(k , X , y , X_valid)
 	show_results(y_valid , classes)
 
+elif argc == 3:
+	cross_extraction(argv[1] , argv[2])
+	print('Caracteristicas extraidas , execute novamente com um classificador selecionado !')
+
 elif argc == 4:
 	cross_extraction(argv[1] , argv[2])
 	classificador = int(argv[3])

@@ -1,6 +1,9 @@
 def show_help():
 	print('main.py knn # default k = 3')
 	print('main.py knn k_value')
+	print('main.py lda')
+	print('main.py svm')
+	print('main.py all')
 	exit()
 
 
@@ -33,41 +36,3 @@ def get_validation_data():
 		X_validacao.append(caracteristicas)
 		y_validacao.append(int(dados[len(dados) - 1]))
 	return X_validacao , y_validacao
-
-
-'''def classifica(teste , classificador , X , y):
-	if classificador == 1:
-		neigh = KNeighborsClassifier(n_neighbors=3)
-		neigh.fit(X, y)
-		classes = neigh.predict(teste)
-		return classes
-	elif classificador == 2:
-		neigh = KNeighborsClassifier(n_neighbors=5)
-		neigh.fit(X, y)
-		classes = neigh.predict(teste)
-		return classes
-	elif classificador == 3:
-		lda_classifier = LinearDiscriminantAnalysis()
-		lda_classifier.fit(X , y)
-		classes = lda_classifier.predict(teste)
-		return classes
-	elif classificador == 4:
-		svm_classifier = svm.SVC()
-		svm_classifier.fit(X , y)
-		classes = svm_classifier.predict(teste)
-		return classes
-	elif classificador == 5:
-		classes = []
-		neigh = KNeighborsClassifier(n_neighbors=3)
-		neigh.fit(X, y)
-		classes.append(neigh.predict(teste)[0])
-		neigh = KNeighborsClassifier(n_neighbors=5)
-		neigh.fit(X, y)
-		classes.append(neigh.predict(teste)[0])
-		lda_classifier = LinearDiscriminantAnalysis()
-		lda_classifier.fit(X , y)
-		classes.append(lda_classifier.predict(teste)[0])
-		svm_classifier = svm.SVC()
-		svm_classifier.fit(X , y)
-		classes.append(svm_classifier.predict(teste)[0])
-		return classes'''
