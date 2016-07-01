@@ -5,8 +5,21 @@ from classifiers import *
 from results import *
 
 argc = len(argv)
-if argc == 2 and argv[1] == '-h':
+if argc == 1:
 	show_help()
+
+elif argc == 2:
+	X_train , y_train = get_train_data()
+	X_valid , y_valid = get_validation_data()
+
+	if argv[1] == 'knn':
+		k = 3
+		classes = knn(k , X_train , y_train , X_valid)
+
+	elif argv[1] == 'lda':
+		classes = lda(X_train , y_train , X_valid)
+
+	show_results(y_valid , classes)
 
 elif argc == 2 and argv[1] == 'knn':
 	k = 3
@@ -14,6 +27,8 @@ elif argc == 2 and argv[1] == 'knn':
 	X_valid , y_valid = get_validation_data()
 	classes = knn(k , X , y , X_valid)
 	show_results(y_valid , classes)
+
+
 
 elif argc == 3 and argv[1] == 'knn':
 	k = int(argv[2])

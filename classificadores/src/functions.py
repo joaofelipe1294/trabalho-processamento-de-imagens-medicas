@@ -3,20 +3,6 @@ from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn import svm
 
 
-def console_help():
-	print('#SEM_TREINAMENTO -> python main.py imagem.tif id_classificador')
-	print('#TREINAMENTO -> python main.py -t base_treinamento/ imagem.tif id_classificador')
-	print('#VALIDACAO CRUZADA -> python main.py caminho/das/bases nome_base_validacao id_classificador')
-	print('+-----------------+')
-	print('| Classificadores |')
-	print('+-----------------+')
-	print('|   1-)   KNN 3   |')
-	print('|   2-)   KNN 5   |')
-	print('|   3-)   LDA     |')
-	print('|   4-)   SVM     |')
-	print('|   5-)   TODOS   |')
-	print('+-----------------+')
-
 def show_help():
 	print('main.py knn # default k = 3')
 	print('main.py knn k_value')

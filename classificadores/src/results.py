@@ -1,4 +1,9 @@
 def show_results(y_valid , classes):
+	recognition_rate(y_valid , classes)
+	maze_matrix(y_valid , classes)
+
+
+def recognition_rate(y_valid , classes):
 	counter = 0
 	hits = 0
 	misses = 0
@@ -11,8 +16,6 @@ def show_results(y_valid , classes):
 	print('acertos : ' + str(hits))
 	print('erros : ' + str(misses))
 	print('taxa de reconhecimento : %.2f' % (hits / len(classes)))
-	maze_matrix(y_valid , classes)
-
 
 
 def maze_matrix(y_valid , classes):
