@@ -19,6 +19,9 @@ elif argc == 2:
 	elif argv[1] == 'lda':
 		classes = lda(X_train , y_train , X_valid)
 
+	elif argv[1] == 'svm':
+		classes = svm(X_train , y_train , X_valid)
+
 	show_results(y_valid , classes)
 
 elif argc == 2 and argv[1] == 'knn':
