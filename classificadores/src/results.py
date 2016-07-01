@@ -33,5 +33,10 @@ def maze_matrix(y_valid , classes):
 				pathogenic[1] += 1
 
 		counter += 1
-	print(non_pathogenic)
-	print(pathogenic)
+	print('+%-10s+%-10s+%-10s+' % ('-' * 10 , '-' * 10 , '-' * 10))
+	print('|%-10s|%-10s|%-10s|' % (' ' * 10 , ' NEGATIVE ' , ' POSITIVE '))
+	print('+%-10s+%-10s+%-10s+' % ('-' * 10 , '-' * 10 , '-' * 10))
+	print('|%-10s|%-10s|%-10s|' % (' NEGATIVE ' ,(' ' * 4 ) + str(non_pathogenic[0]) , (' ' * 4 ) + str(non_pathogenic[1])))
+	print('+%-10s+%-10s+%-10s+' % ('-' * 10 , '-' * 10 , '-' * 10))
+	print('|%-10s|%-10s|%-10s|' % (' POSITIVE ' ,(' ' * 4 ) + str(pathogenic[0]) , (' ' * 4 ) + str(pathogenic[1])))
+	print('+%-10s+%-10s+%-10s+' % ('-' * 10 , '-' * 10 , '-' * 10))
