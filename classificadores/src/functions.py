@@ -17,6 +17,9 @@ def console_help():
 	print('|   5-)   TODOS   |')
 	print('+-----------------+')
 
+def show_help():
+	print('pass')
+
 
 def pega_valores():
 	X = []

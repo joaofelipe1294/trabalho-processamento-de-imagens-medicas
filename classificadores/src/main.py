@@ -6,7 +6,10 @@ argc = len(argv)
 if argc == 1:
 	console_help()
 	exit()
-elif argc == 2:
+elif argc == 2 and argv[1] == '-h':
+	show_help()
+
+
 	classificador = int(argv[1])
 elif argc == 4:
 	cross_extraction(argv[1] , argv[2])
