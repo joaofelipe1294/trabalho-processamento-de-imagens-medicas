@@ -1,5 +1,6 @@
 def show_results(y_valid , classes):
-	recognition_rate(y_valid , classes)
+	recognition = recognition_rate(y_valid , classes)
+	print('taxa de reconhecimento : %.2f' % recognition)
 	maze_matrix(y_valid , classes)
 
 
@@ -13,9 +14,7 @@ def recognition_rate(y_valid , classes):
 		else:
 			misses += 1
 		counter += 1
-	print('acertos : ' + str(hits))
-	print('erros : ' + str(misses))
-	print('taxa de reconhecimento : %.2f' % (hits / len(classes)))
+	return hits / len(classes)
 
 
 def maze_matrix(y_valid , classes):
@@ -43,3 +42,14 @@ def maze_matrix(y_valid , classes):
 	print('+%-10s+%-10s+%-10s+' % ('-' * 10 , '-' * 10 , '-' * 10))
 	print('|%-10s|%-10s|%-10s|' % (' POSITIVE ' ,(' ' * 4 ) + str(pathogenic[0]) , (' ' * 4 ) + str(pathogenic[1])))
 	print('+%-10s+%-10s+%-10s+' % ('-' * 10 , '-' * 10 , '-' * 10))
+
+
+
+def show_recognition_rates(recognition_rates):
+	print('+%-10s+%-10s+' % ('-' * 10 , '-' * 10))
+	print('|%-10s|%-10s|' % (' KNN' , ' ' * 4 +  str(int(100 * recognition_rates[0]))))
+	print('+%-10s+%-10s+' % ('-' * 10 , '-' * 10))
+	print('|%-10s|%-10s|' % (' LDA ' ,(' ' * 4 ) + str(int(100 * recognition_rates[1]))))
+	print('+%-10s+%-10s+' % ('-' * 10 , '-' * 10))
+	print('|%-10s|%-10s|' % (' SVM ' ,(' ' * 4 ) + str(int(100 * recognition_rates[2]))))
+	print('+%-10s+%-10s+' % ('-' * 10 , '-' * 10))

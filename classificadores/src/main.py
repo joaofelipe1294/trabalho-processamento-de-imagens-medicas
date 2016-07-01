@@ -22,16 +22,19 @@ elif argc == 2:
 	elif argv[1] == 'svm':
 		classes = svm(X_train , y_train , X_valid)
 
+	elif argv[1] == 'all':
+		recognition_rates = []
+		k = 3
+		classes = knn(k , X_train , y_train , X_valid)
+		recognition_rates.append(recognition_rate(y_valid , classes))
+		classes = lda(X_train , y_train , X_valid)
+		recognition_rates.append(recognition_rate(y_valid , classes))
+		classes = svm(X_train , y_train , X_valid)
+		recognition_rates.append(recognition_rate(y_valid , classes))
+		show_recognition_rates(recognition_rates)
+		exit()
+
 	show_results(y_valid , classes)
-
-elif argc == 2 and argv[1] == 'knn':
-	k = 3
-	X , y = get_train_data()
-	X_valid , y_valid = get_validation_data()
-	classes = knn(k , X , y , X_valid)
-	show_results(y_valid , classes)
-
-
 
 elif argc == 3 and argv[1] == 'knn':
 	k = int(argv[2])

@@ -1,8 +1,3 @@
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
-from sklearn import svm
-
-
 def show_help():
 	print('main.py knn # default k = 3')
 	print('main.py knn k_value')
@@ -40,7 +35,7 @@ def get_validation_data():
 	return X_validacao , y_validacao
 
 
-def classifica(teste , classificador , X , y):
+'''def classifica(teste , classificador , X , y):
 	if classificador == 1:
 		neigh = KNeighborsClassifier(n_neighbors=3)
 		neigh.fit(X, y)
@@ -75,4 +70,4 @@ def classifica(teste , classificador , X , y):
 		svm_classifier = svm.SVC()
 		svm_classifier.fit(X , y)
 		classes.append(svm_classifier.predict(teste)[0])
-		return classes
+		return classes'''
