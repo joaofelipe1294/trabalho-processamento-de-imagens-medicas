@@ -4,6 +4,7 @@ def show_help():
 	print('main.py lda')
 	print('main.py svm')
 	print('main.py all')
+	print('main.py -c knn lda svm')
 	exit()
 
 

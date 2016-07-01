@@ -47,12 +47,38 @@ elif argc == 3:
 	cross_extraction(argv[1] , argv[2])
 	print('Caracteristicas extraidas , execute novamente com um classificador selecionado !')
 
-elif argc == 4:
-	cross_extraction(argv[1] , argv[2])
-	classificador = int(argv[3])
-	X , y = pega_valores()
-	X_validacao , y_validacao = dados_validacao()
-	classes = classifica(X_validacao , classificador , X , y)
-	resultados(y_validacao , classes)
-#print(classes)
-#print(y_validacao)
+elif (argc > 3 and argc < 6) and argv[1] == '-c' :
+	X_train , y_train = get_train_data()
+	X_valid , y_valid = get_validation_data()
+	if argc == 4:
+		classifiers = [argv[2] , argv[3]]
+	else:
+		classifiers = [argv[2] , argv[3] , argv[4]]
+
+	probabilities = []
+	for classifier in classifiers:
+		if classifier == 'knn':
+			k = 3
+			probabilities.append(knn_probabilities(k , X_train , y_train , X_valid))
+		elif classifier == 'lda':
+			probabilities.append(lda_probabilities(X_train , y_train , X_valid))
+		elif classifier == 'svm':
+			probabilities.append(svm_probabilities(X_train ,y_train , X_valid))
+
+	index = 0
+	iterations = len(probabilities[0])
+	classes = []
+	while index < iterations:
+		pathologic = 0
+		non_pathological = 0
+		counter = 0
+		while counter < len(probabilities):
+			non_pathological += probabilities[counter][index][0]
+			pathologic += probabilities[counter][index][1]
+			counter += 1
+		if pathologic > non_pathological:
+			classes.append(1)
+		elif non_pathological > pathologic:
+			classes.append(0)
+		index += 1
+	show_results(y_valid , classes)
