@@ -18,6 +18,7 @@ def console_help():
 	print('+-----------------+')
 
 def show_help():
+	print('main.py knn # default k = 3')
 	print('main.py knn k_value')
 	exit()
 
