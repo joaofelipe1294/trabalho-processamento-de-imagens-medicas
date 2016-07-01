@@ -50,18 +50,3 @@ def cross_extraction(bases_path , valid_base_name):
 	for file_name in result_files:
 		cmd = "rm " + file_name
 		result = os.system(cmd)
-
-
-def resultados(y_validacao , classes):
-	contador = 0
-	acertos = 0
-	erros = 0
-	while contador < len(y_validacao):
-		if y_validacao[contador] == classes[contador]:
-			acertos += 1
-		else:
-			erros += 1
-		contador += 1
-	print('acertos : ' + str(acertos))
-	print('erros : ' + str(erros))
-	print('taxa de reconhecimento : %.2f' % (acertos / len(classes)))
